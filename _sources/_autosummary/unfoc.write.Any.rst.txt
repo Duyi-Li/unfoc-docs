@@ -1,0 +1,10 @@
+﻿unfoc.Any
+=========
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.write.Any
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

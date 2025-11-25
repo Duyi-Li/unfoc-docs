@@ -1,0 +1,6 @@
+﻿unfoc.namedtuple
+================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.read.namedtuple

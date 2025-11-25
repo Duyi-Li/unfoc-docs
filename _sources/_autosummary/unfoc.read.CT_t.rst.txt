@@ -1,0 +1,10 @@
+﻿unfoc.CT_t
+==========
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.CT_t
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

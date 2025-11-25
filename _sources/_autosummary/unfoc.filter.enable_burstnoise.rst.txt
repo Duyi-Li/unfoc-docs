@@ -1,0 +1,6 @@
+﻿unfoc.enable_burstnoise
+=======================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.filter.enable_burstnoise

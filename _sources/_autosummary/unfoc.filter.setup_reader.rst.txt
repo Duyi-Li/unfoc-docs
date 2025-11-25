@@ -1,0 +1,6 @@
+﻿unfoc.setup_reader
+==================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.filter.setup_reader

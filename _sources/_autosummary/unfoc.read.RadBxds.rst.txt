@@ -1,0 +1,10 @@
+﻿unfoc.RadBxds
+=============
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.RadBxds
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

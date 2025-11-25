@@ -1,0 +1,10 @@
+﻿unfoc.IncoherentTrace
+=====================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.write.IncoherentTrace
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

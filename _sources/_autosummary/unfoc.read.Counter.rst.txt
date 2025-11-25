@@ -1,0 +1,10 @@
+﻿unfoc.Counter
+=============
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.Counter
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

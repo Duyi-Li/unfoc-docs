@@ -1,0 +1,6 @@
+﻿unfoc.get_ref_chirp
+===================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.dechirp.get_ref_chirp

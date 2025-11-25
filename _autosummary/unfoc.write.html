@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unfoc.write &mdash; unfoc 2.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="unfoc.dechirp" href="unfoc.dechirp.html" />
+    <link rel="prev" title="unfoc.read" href="unfoc.read.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            unfoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">unfoc.write</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.write.IncoherentTrace"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.channel"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.channel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.count"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.ct"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.ct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.index"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.magnitude"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.magnitude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.IncoherentTrace.phase"><code class="docutils literal notranslate"><span class="pre">IncoherentTrace.phase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.write.PIK1Output"><code class="docutils literal notranslate"><span class="pre">PIK1Output</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.infile"><code class="docutils literal notranslate"><span class="pre">PIK1Output.infile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.channel"><code class="docutils literal notranslate"><span class="pre">PIK1Output.channel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.magscale"><code class="docutils literal notranslate"><span class="pre">PIK1Output.magscale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.stackdepth"><code class="docutils literal notranslate"><span class="pre">PIK1Output.stackdepth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.incodepth"><code class="docutils literal notranslate"><span class="pre">PIK1Output.incodepth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.record_increment"><code class="docutils literal notranslate"><span class="pre">PIK1Output.record_increment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.record_idx"><code class="docutils literal notranslate"><span class="pre">PIK1Output.record_idx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.do_phase"><code class="docutils literal notranslate"><span class="pre">PIK1Output.do_phase</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.enable_meta_idx"><code class="docutils literal notranslate"><span class="pre">PIK1Output.enable_meta_idx</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.write_record"><code class="docutils literal notranslate"><span class="pre">PIK1Output.write_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.close"><code class="docutils literal notranslate"><span class="pre">PIK1Output.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.__enter__"><code class="docutils literal notranslate"><span class="pre">PIK1Output.__enter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unfoc.write.PIK1Output.__init__"><code class="docutils literal notranslate"><span class="pre">PIK1Output.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">PIK1Output.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">PIK1Output.write_record()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.dechirp.html">unfoc.dechirp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.filter.html">unfoc.filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.trace.html">unfoc.trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.parse_channels.html">unfoc.parse_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.burst_noise.filter.html">unfoc.burst_noise.filter</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">unfoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">unfoc Module</a></li>
+      <li class="breadcrumb-item active">unfoc.write</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/unfoc.write.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-unfoc.write">
+<span id="unfoc-write"></span><h1>unfoc.write<a class="headerlink" href="#module-unfoc.write" title="Link to this heading"></a></h1>
+<p>Handler for writing unfoc output files: unfocused radar data products
+in the UTIG PIK1 format.</p>
+<p>The primary class in this module, PIK1Output, handles writing the
+collection of unfocused data products (magnitude, phase, metadata,
+trace indices) to a specified directory in the format and organization
+expected for PIK1 on the UTIG hierarchy.</p>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.write.IncoherentTrace.html#unfoc.write.IncoherentTrace" title="unfoc.write.IncoherentTrace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncoherentTrace</span></code></a>(channel, magnitude, phase, ct)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="unfoc.write.PIK1Output.html#unfoc.write.PIK1Output" title="unfoc.write.PIK1Output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PIK1Output</span></code></a>(input_filename, outdir, channel, ...)</p></td>
+<td><p>Writer for incoherent radar data products in UTIG-compatible PIK1 format.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IncoherentTrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.IncoherentTrace" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.channel">
+<span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#unfoc.write.IncoherentTrace.channel" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.IncoherentTrace.count" title="Link to this definition"></a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.ct">
+<span class="sig-name descname"><span class="pre">ct</span></span><a class="headerlink" href="#unfoc.write.IncoherentTrace.ct" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.maxsize</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.IncoherentTrace.index" title="Link to this definition"></a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.magnitude">
+<span class="sig-name descname"><span class="pre">magnitude</span></span><a class="headerlink" href="#unfoc.write.IncoherentTrace.magnitude" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.IncoherentTrace.phase">
+<span class="sig-name descname"><span class="pre">phase</span></span><a class="headerlink" href="#unfoc.write.IncoherentTrace.phase" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PIK1Output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magscale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LoResInco'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loglevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.PIK1Output" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Writer for incoherent radar data products in UTIG-compatible PIK1 format.</p>
+<p>This class outputs unfocused magnitude and phase radar data along with metadata
+and trace indices to a directory. Output files include <cite>.meta</cite>, <cite>.tracenumbers</cite>,
+binary magnitude and optional phase files. Designed for use in radar data
+processing pipelines, and can act as a tee or tap in streaming architectures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_filename</strong> (<em>str</em>) – Path to the input file (used for metadata reference).</p></li>
+<li><p><strong>outdir</strong> (<em>str</em>) – Output directory for all files.</p></li>
+<li><p><strong>channel</strong> (<em>int</em>) – Channel number to include in output filenames.</p></li>
+<li><p><strong>magscale</strong> (<em>int</em>) – Scaling factor applied to log-magnitude values.</p></li>
+<li><p><strong>stackdepth</strong> (<em>int</em>) – Number of stacks per output record.</p></li>
+<li><p><strong>incodepth</strong> (<em>int</em>) – Number of incoherent traces per stack.</p></li>
+<li><p><strong>do_phase</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, writes phase output. Default is True.</p></li>
+<li><p><strong>do_index</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, writes trace indices to the metadata file. Default is True.</p></li>
+<li><p><strong>tag</strong> (<em>str</em><em>, </em><em>optional</em>) – Custom tag for output filenames. Default is ‘LoResInco’.</p></li>
+<li><p><strong>loglevel</strong> (<em>int</em><em>, </em><em>optional</em>) – Logging level (e.g., logging.INFO). Default is INFO.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.infile">
+<span class="sig-name descname"><span class="pre">infile</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.infile" title="Link to this definition"></a></dt>
+<dd><p>Input file name used in metadata headers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.channel">
+<span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number for trace assignment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.magscale">
+<span class="sig-name descname"><span class="pre">magscale</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.magscale" title="Link to this definition"></a></dt>
+<dd><p>Logarithmic magnitude scaling factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.stackdepth">
+<span class="sig-name descname"><span class="pre">stackdepth</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.stackdepth" title="Link to this definition"></a></dt>
+<dd><p>Number of stacks per output record.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.incodepth">
+<span class="sig-name descname"><span class="pre">incodepth</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.incodepth" title="Link to this definition"></a></dt>
+<dd><p>Number of incoherent traces per stack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.record_increment">
+<span class="sig-name descname"><span class="pre">record_increment</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.record_increment" title="Link to this definition"></a></dt>
+<dd><p>Trace index increment between records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.record_idx">
+<span class="sig-name descname"><span class="pre">record_idx</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.record_idx" title="Link to this definition"></a></dt>
+<dd><p>Current trace index to be written into metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.do_phase">
+<span class="sig-name descname"><span class="pre">do_phase</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.do_phase" title="Link to this definition"></a></dt>
+<dd><p>Whether to write phase output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.enable_meta_idx">
+<span class="sig-name descname"><span class="pre">enable_meta_idx</span></span><a class="headerlink" href="#unfoc.write.PIK1Output.enable_meta_idx" title="Link to this definition"></a></dt>
+<dd><p>Whether to write trace indices into the metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">mag_fd,</span> <span class="pre">phs_fd,</span> <span class="pre">meta_fd,</span> <span class="pre">tracenumbers_fd</span></span></dt>
+<dd><p>File descriptors for output binary and text files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="unfoc.write.BinaryIO.html#unfoc.write.BinaryIO" title="unfoc.write.BinaryIO">BinaryIO</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.write_record">
+<span class="sig-name descname"><span class="pre">write_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inco_trace</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.PIK1Output.write_record" title="Link to this definition"></a></dt>
+<dd><p>Write magnitude, phase, and trace number for one incoherent trace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.PIK1Output.close" title="Link to this definition"></a></dt>
+<dd><p>Close all file descriptors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.__enter__">
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">__exit__(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.PIK1Output.__enter__" title="Link to this definition"></a></dt>
+<dd><p>Context manager methods for safely using this class with <cite>with</cite> blocks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unfoc.write.PIK1Output.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magscale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LoResInco'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loglevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.write.PIK1Output.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the PIK1Output writer and opens output file descriptors.</p>
+<p>Opens all file descriptors and outputs the header for the metafile.
+Having args input is ugly, but it contains vars not used anywhere
+else in the class other than that header file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Close all output file descriptors, if open.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">write_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inco_trace</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Write one incoherent trace to magnitude, phase, trace number, and metadata files.</p>
+<p>Magnitude and phase arrays are scaled and saved as 4-byte big-endian integers.
+Trace numbers (<cite>ct.seq</cite>) and optional metadata indices are written as text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inco_trace</strong> (<a class="reference internal" href="unfoc.write.IncoherentTrace.html#unfoc.write.IncoherentTrace" title="unfoc.write.IncoherentTrace"><em>IncoherentTrace</em></a>) – Named tuple with fields: channel (int), magnitude (ndarray),
+phase (ndarray), and ct (object with <cite>seq</cite>).</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Output binary format: 4-byte big-endian integers (network byte order).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="unfoc.read.html" class="btn btn-neutral float-left" title="unfoc.read" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="unfoc.dechirp.html" class="btn btn-neutral float-right" title="unfoc.dechirp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Gregory Ng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

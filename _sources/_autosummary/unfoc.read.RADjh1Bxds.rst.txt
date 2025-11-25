@@ -1,0 +1,10 @@
+﻿unfoc.RADjh1Bxds
+================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.RADjh1Bxds
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

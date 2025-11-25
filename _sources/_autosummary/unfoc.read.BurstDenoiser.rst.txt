@@ -1,0 +1,10 @@
+﻿unfoc.BurstDenoiser
+===================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.BurstDenoiser
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

@@ -1,0 +1,10 @@
+﻿unfoc.PIK1ChannelSpec
+=====================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.filter.PIK1ChannelSpec
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

@@ -1,0 +1,10 @@
+﻿unfoc.defaultdict
+=================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.defaultdict
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

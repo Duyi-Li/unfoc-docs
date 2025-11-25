@@ -1,0 +1,10 @@
+﻿unfoc.Path
+==========
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.Path
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

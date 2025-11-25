@@ -1,0 +1,6 @@
+﻿unfoc.read_RADnhx_gen
+=====================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.read.read_RADnhx_gen

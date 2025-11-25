@@ -1,0 +1,6 @@
+﻿unfoc.read_1m_gen
+=================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.read.read_1m_gen

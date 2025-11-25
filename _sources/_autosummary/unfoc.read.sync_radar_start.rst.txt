@@ -1,0 +1,6 @@
+﻿unfoc.sync_radar_start
+======================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.read.sync_radar_start

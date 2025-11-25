@@ -1,0 +1,6 @@
+﻿unfoc.setup_bxds_reader
+=======================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.filter.setup_bxds_reader

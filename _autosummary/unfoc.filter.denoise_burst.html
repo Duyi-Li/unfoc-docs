@@ -1,0 +1,144 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unfoc.denoise_burst &mdash; unfoc 2.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            unfoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">unfoc Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">unfoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">unfoc.denoise_burst</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/unfoc.filter.denoise_burst.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="unfoc-denoise-burst">
+<h1>unfoc.denoise_burst<a class="headerlink" href="#unfoc-denoise-burst" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="unfoc.filter.denoise_burst">
+<span class="sig-name descname"><span class="pre">denoise_burst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tracegen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.denoise_burst" title="Link to this definition"></a></dt>
+<dd><p>Return a generator that reduces burst noise in a series of traces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tracegen</strong> (<em>generator</em><em> of </em><a class="reference internal" href="unfoc.read.Trace.html#unfoc.read.Trace" title="unfoc.read.Trace"><em>Trace</em></a>) – a generator that provides Trace objects of real-valued zero-mean amplitude
+data (such as from a bxds file).  These can be 16-bit integer data</p></li>
+<li><p><strong>median_size</strong> (<em>tuple</em><em>[</em><em>int</em><em>,</em><em>int</em><em>]</em>) – <p>Size of the 2D median filter (slow time, fast time) for detecting background level.
+A reasonable value is (3, 51)</p>
+<p>Decreasing median_size fast time less than 41 will result in a significant increase of noise in the image.
+Increasing the median_size fast time above 51 will not have noticeable effects.
+Currently, only a median filter slow time dimension of 1 is supported
+(no forward or aft time dependence)</p>
+</p></li>
+<li><p><strong>burst_widths</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – <p>A sequence of widths of bursts to use for the matched filter, in fast time samples.
+A reasonable value for this is [20], or perhaps [5, 15, 30]</p>
+<p>Increasing burst_widths above 15 will not yield significant changes to the figure.
+Decreasing burst_width will only begin to show changes in the figure below 15 (notably around 7).</p>
+</p></li>
+<li><p><strong>detect_threshold</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – <p>Detection threshold values for burst detection in dB.
+The length of this sequence must be the same as for burst_widths.
+25 is a reasonable value</p>
+<p>Decreasing the detect_threshold value from 25 will not yield a visible effect on the figure.
+Increasing the detect_threshold value to 30 or above will cause the figure to have more noise.</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Yields a sequence of traces with the same length as the input sequence,</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="unfoc.read.Trace.html#unfoc.read.Trace" title="unfoc.read.Trace">Trace</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Gregory Ng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

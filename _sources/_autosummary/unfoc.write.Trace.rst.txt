@@ -1,0 +1,10 @@
+﻿unfoc.Trace
+===========
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.write.Trace
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

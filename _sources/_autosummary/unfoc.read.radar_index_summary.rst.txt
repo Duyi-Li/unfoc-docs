@@ -1,0 +1,6 @@
+﻿unfoc.radar_index_summary
+=========================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.read.radar_index_summary

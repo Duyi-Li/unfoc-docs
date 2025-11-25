@@ -1,0 +1,10 @@
+﻿unfoc.radnh5_header
+===================
+
+.. py:currentmodule:: unfoc
+
+.. autoclass:: unfoc.read.radnh5_header
+   :members:
+   :undoc-members:
+   :inherited-members:
+   :show-inheritance:

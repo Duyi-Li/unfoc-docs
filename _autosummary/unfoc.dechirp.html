@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unfoc.dechirp &mdash; unfoc 2.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="unfoc.filter" href="unfoc.filter.html" />
+    <link rel="prev" title="unfoc.write" href="unfoc.write.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            unfoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.write.html">unfoc.write</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">unfoc.dechirp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.dechirp.cinterp"><code class="docutils literal notranslate"><span class="pre">cinterp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.dechirp.denoise_and_dechirp"><code class="docutils literal notranslate"><span class="pre">denoise_and_dechirp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.dechirp.get_hfilter"><code class="docutils literal notranslate"><span class="pre">get_hfilter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unfoc.dechirp.get_ref_chirp"><code class="docutils literal notranslate"><span class="pre">get_ref_chirp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.filter.html">unfoc.filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.trace.html">unfoc.trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.parse_channels.html">unfoc.parse_channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unfoc.burst_noise.filter.html">unfoc.burst_noise.filter</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">unfoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">unfoc Module</a></li>
+      <li class="breadcrumb-item active">unfoc.dechirp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/unfoc.dechirp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-unfoc.dechirp">
+<span id="unfoc-dechirp"></span><h1>unfoc.dechirp<a class="headerlink" href="#module-unfoc.dechirp" title="Link to this heading"></a></h1>
+<p>Math related to dechirping, local oscillator noise suppression and frequency domain filtering.</p>
+<p>This module provides tools for:
+- Removing coherent LO components from FFT spectra
+- Dechirping traces using a reference chirp
+- Generating reference chirps and frequency-domain filters</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.dechirp.cinterp.html#unfoc.dechirp.cinterp" title="unfoc.dechirp.cinterp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cinterp</span></code></a>(sweep_fft, index)</p></td>
+<td><p>Suppress local oscillator (LO) spike in an FFT spectrum by interpolation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="unfoc.dechirp.denoise_and_dechirp.html#unfoc.dechirp.denoise_and_dechirp" title="unfoc.dechirp.denoise_and_dechirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_and_dechirp</span></code></a>(trace, ref_chirp, ...[, ...])</p></td>
+<td><p>Denoise and dechirp a radar trace in the frequency domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.dechirp.get_hfilter.html#unfoc.dechirp.get_hfilter" title="unfoc.dechirp.get_hfilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hfilter</span></code></a>(trunc_sweep_length)</p></td>
+<td><p>Generate a half-band sine window filter centered in a fixed band.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="unfoc.dechirp.get_ref_chirp.html#unfoc.dechirp.get_ref_chirp" title="unfoc.dechirp.get_ref_chirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ref_chirp</span></code></a>(bandpass, trunc_sweep_length)</p></td>
+<td><p>Generate a reference chirp for frequency-domain dechirping.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="unfoc.dechirp.cinterp">
+<span class="sig-name descname"><span class="pre">cinterp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sweep_fft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.dechirp.cinterp" title="Link to this definition"></a></dt>
+<dd><p>Suppress local oscillator (LO) spike in an FFT spectrum by interpolation.</p>
+<p>Modifies sweep_fft in place to filter out coherent local oscillator
+component by interpolating in the complex fourier domain
+sweep_fft is fft of sweep, and index is a bin affected by the LO noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sweep_fft</strong> (<em>np.ndarray</em>) – Complex FFT array of the input radar sweep.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index of the LO-contaminated bin to be replaced.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unfoc.dechirp.denoise_and_dechirp">
+<span class="sig-name descname"><span class="pre">denoise_and_dechirp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_chirp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_cinterp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detrend_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.dechirp.denoise_and_dechirp" title="Link to this definition"></a></dt>
+<dd><p>Denoise and dechirp a radar trace in the frequency domain.</p>
+<p>Applies blanking, time shift, detrending, FFT, optional LO suppression,
+and multiplies by a reference chirp in frequency domain. The result
+is inverse-transformed and realigned to yield the dechirped trace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<em>np.ndarray</em>) – Raw input radar trace to be processed.</p></li>
+<li><p><strong>ref_chirp</strong> (<em>np.ndarray</em>) – Frequency-domain reference chirp used for dechirping.</p></li>
+<li><p><strong>blanking</strong> (<em>int</em>) – Number of samples to zero out at the start (positive) or end (negative).</p></li>
+<li><p><strong>output_samples</strong> (<em>int</em>) – Length of FFT and output trace.</p></li>
+<li><p><strong>do_cinterp</strong> (<em>bool</em>) – Whether to apply LO spike suppression via <cite>cinterp</cite>.</p></li>
+<li><p><strong>detrend_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Detrending method passed to <cite>scipy.signal.detrend</cite>. Default is ‘linear’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dechirped radar trace (complex-valued).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unfoc.dechirp.get_hfilter">
+<span class="sig-name descname"><span class="pre">get_hfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trunc_sweep_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.dechirp.get_hfilter" title="Link to this definition"></a></dt>
+<dd><p>Generate a half-band sine window filter centered in a fixed band.</p>
+<p>The filter attenuates frequencies outside the 2.5–17.5 MHz range,
+scaled to the FFT length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trunc_sweep_length</strong> (<em>int</em>) – FFT length, used to compute the sample indices corresponding to frequency cutoffs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Frequency-domain filter array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unfoc.dechirp.get_ref_chirp">
+<span class="sig-name descname"><span class="pre">get_ref_chirp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc_sweep_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.dechirp.get_ref_chirp" title="Link to this definition"></a></dt>
+<dd><p>Generate a reference chirp for frequency-domain dechirping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bandpass</strong> (<em>bool</em>) – If True, return chirp as-is. If False, reverse chirp for matched filtering.</p></li>
+<li><p><strong>trunc_sweep_length</strong> (<em>int</em>) – Desired length of the output FFT chirp.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Frequency-domain reference chirp.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="unfoc.write.html" class="btn btn-neutral float-left" title="unfoc.write" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="unfoc.filter.html" class="btn btn-neutral float-right" title="unfoc.filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Gregory Ng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

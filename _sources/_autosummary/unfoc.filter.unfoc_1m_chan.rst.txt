@@ -1,0 +1,6 @@
+﻿unfoc.unfoc_1m_chan
+===================
+
+.. py:currentmodule:: unfoc
+
+.. autofunction:: unfoc.filter.unfoc_1m_chan
