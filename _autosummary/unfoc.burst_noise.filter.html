@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc.burst_noise.filter &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc.burst_noise.filter &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/documentation_options.js?v=20623aea"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -45,6 +45,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.write.html">unfoc.write</a></li>
@@ -52,23 +53,7 @@
 <li class="toctree-l2"><a class="reference internal" href="unfoc.filter.html">unfoc.filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.trace.html">unfoc.trace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.parse_channels.html">unfoc.parse_channels</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">unfoc.burst_noise.filter</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.BurstDenoiser"><code class="docutils literal notranslate"><span class="pre">BurstDenoiser</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#unfoc.burst_noise.filter.BurstDenoiser.denoise"><code class="docutils literal notranslate"><span class="pre">BurstDenoiser.denoise()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#unfoc.burst_noise.filter.BurstDenoiser.__init__"><code class="docutils literal notranslate"><span class="pre">BurstDenoiser.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">BurstDenoiser.denoise()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.denoise_burst"><code class="docutils literal notranslate"><span class="pre">denoise_burst()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.detected_pulses"><code class="docutils literal notranslate"><span class="pre">detected_pulses()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.expand_roi"><code class="docutils literal notranslate"><span class="pre">expand_roi()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.load_pulse_kernel"><code class="docutils literal notranslate"><span class="pre">load_pulse_kernel()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.lp"><code class="docutils literal notranslate"><span class="pre">lp()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.make_pulse_kernel"><code class="docutils literal notranslate"><span class="pre">make_pulse_kernel()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.match_burst_trace"><code class="docutils literal notranslate"><span class="pre">match_burst_trace()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unfoc.burst_noise.filter.silence_burst"><code class="docutils literal notranslate"><span class="pre">silence_burst()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">unfoc.burst_noise.filter</a></li>
 </ul>
 </li>
 </ul>
@@ -98,35 +83,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-unfoc.burst_noise.filter">
-<span id="unfoc-burst-noise-filter"></span><h1>unfoc.burst_noise.filter<a class="headerlink" href="#module-unfoc.burst_noise.filter" title="Link to this heading"></a></h1>
+  <section id="unfoc-burst-noise-filter">
+<h1>unfoc.burst_noise.filter<a class="headerlink" href="#unfoc-burst-noise-filter" title="Link to this heading"></a></h1>
 <p>Main body for burst noise filtering</p>
 <p>Includes matched filtering, pulse detection, and silence-based suppression methods.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.denoise_burst" title="unfoc.burst_noise.filter.denoise_burst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_burst</span></code></a>(tracegen, median_size, ...)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_burst</span></code>(tracegen, median_size, ...)</p></td>
 <td><p>Return a generator that reduces burst noise in a series of traces</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.detected_pulses" title="unfoc.burst_noise.filter.detected_pulses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detected_pulses</span></code></a>(detection[, gap])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">detected_pulses</span></code>(detection[, gap])</p></td>
 <td><p>Yield a sequence of contiguous intervals from a detection array.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.expand_roi" title="unfoc.burst_noise.filter.expand_roi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_roi</span></code></a>(idx0, idx1, gap, detection)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_roi</span></code>(idx0, idx1, gap, detection)</p></td>
 <td><p>Expand a region of interest (ROI) by half the gap on both sides.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.load_pulse_kernel" title="unfoc.burst_noise.filter.load_pulse_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_pulse_kernel</span></code></a>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_pulse_kernel</span></code>()</p></td>
 <td><p>Load a precomputed burst noise kernel from a file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.lp" title="unfoc.burst_noise.filter.lp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lp</span></code></a>(trace)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">lp</span></code>(trace)</p></td>
 <td><p>Return log power of an amplitude trace in dB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.make_pulse_kernel" title="unfoc.burst_noise.filter.make_pulse_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_pulse_kernel</span></code></a>(width[, amplitude, nsamples])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_pulse_kernel</span></code>(width[, amplitude, nsamples])</p></td>
 <td><p>Generate a sinc pulse kernel for matched filtering.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.match_burst_trace" title="unfoc.burst_noise.filter.match_burst_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_burst_trace</span></code></a>(trace_bb, burst_kernel, ...)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_burst_trace</span></code>(trace_bb, burst_kernel, ...)</p></td>
 <td><p>Apply a matched filter kernel to a trace and return the convolution</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.silence_burst" title="unfoc.burst_noise.filter.silence_burst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">silence_burst</span></code></a>(trace, roi)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">silence_burst</span></code>(trace, roi)</p></td>
 <td><p>Silence the burst by taking the ends and filling them toward the middle</p></td>
 </tr>
 </tbody>
@@ -134,14 +119,14 @@
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.burst_noise.filter.BurstDenoiser" title="unfoc.burst_noise.filter.BurstDenoiser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BurstDenoiser</span></code></a>(median_size, burst_widths, ...)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">BurstDenoiser</span></code>(median_size, burst_widths, ...)</p></td>
 <td><p>Class-encapsulated interface to burst denoising</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py class">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.BurstDenoiser">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BurstDenoiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">median_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.BurstDenoiser" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BurstDenoiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">median_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class-encapsulated interface to burst denoising</p>
 <p>Applies matched filtering and median filtering to detect and suppress
@@ -157,19 +142,21 @@ Only 1D filters in slow time are currently supported.</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.BurstDenoiser.denoise">
-<span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traces</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.BurstDenoiser.denoise" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traces</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Apply burst noise detection and suppression to 1D or 2D trace arrays.</p>
 </dd></dl>
 
+<p class="rubric">Notes</p>
+<p>Todo: Combine with the functional interface (<cite>denoise_burst</cite>)</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.BurstDenoiser.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">median_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.BurstDenoiser.__init__" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">median_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">denoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traces</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Denoise one or more radar traces by detecting and silencing burst noise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -182,18 +169,20 @@ Only 1D filters in slow time are currently supported.</p></li>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Todo: Refactor to allow all median filters to be done at once</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.denoise_burst">
-<span class="sig-name descname"><span class="pre">denoise_burst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tracegen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.denoise_burst" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">denoise_burst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tracegen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_widths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_thresholds</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Return a generator that reduces burst noise in a series of traces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>tracegen</strong> (<em>generator</em><em> of </em><a class="reference internal" href="unfoc.read.Trace.html#unfoc.read.Trace" title="unfoc.read.Trace"><em>Trace</em></a>) – a generator that provides Trace objects of real-valued zero-mean amplitude
+<li><p><strong>tracegen</strong> (<em>generator</em><em> of </em><a class="reference internal" href="unfoc.trace.html#unfoc.trace.Trace" title="unfoc.trace.Trace"><em>Trace</em></a>) – a generator that provides Trace objects of real-valued zero-mean amplitude
 data (such as from a bxds file).  These can be 16-bit integer data</p></li>
 <li><p><strong>median_size</strong> (<em>tuple</em><em>[</em><em>int</em><em>,</em><em>int</em><em>]</em>) – <p>Size of the 2D median filter (slow time, fast time) for detecting background level.
 A reasonable value is (3, 51)</p>
@@ -219,14 +208,14 @@ Increasing the detect_threshold value to 30 or above will cause the figure to ha
 <dd class="field-even"><p>Yields a sequence of traces with the same length as the input sequence,</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="unfoc.read.Trace.html#unfoc.read.Trace" title="unfoc.read.Trace">Trace</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="unfoc.trace.html#unfoc.trace.Trace" title="unfoc.trace.Trace">Trace</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.detected_pulses">
-<span class="sig-name descname"><span class="pre">detected_pulses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.detected_pulses" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">detected_pulses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Yield a sequence of contiguous intervals from a detection array.</p>
 <p>Regions of interest (ROIs) are sequences of nonzero detections,
 separated by at least <cite>gap</cite> zero entries. Each ROI is expanded
@@ -243,11 +232,13 @@ is either 0 (no detection) or nonzero (detection).</p></li>
 <dd class="field-even"><p><em>tuple[int,int]</em> – A tuple of start and end indices for each detected pulse region.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Todo: Use median filter and make this shorter/quicker</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.expand_roi">
-<span class="sig-name descname"><span class="pre">expand_roi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#unfoc.burst_noise.filter.expand_roi" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">expand_roi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detection</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Expand a region of interest (ROI) by half the gap on both sides.</p>
 <p>idx0 is the start index and idx1 is the index of the first non-detection
 (i.e., a half-open interval)</p>
@@ -262,20 +253,20 @@ is either 0 (no detection) or nonzero (detection).</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.load_pulse_kernel">
-<span class="sig-name descname"><span class="pre">load_pulse_kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.load_pulse_kernel" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">load_pulse_kernel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Load a precomputed burst noise kernel from a file.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.lp">
-<span class="sig-name descname"><span class="pre">lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.burst_noise.filter.lp" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Return log power of an amplitude trace in dB</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.make_pulse_kernel">
-<span class="sig-name descname"><span class="pre">make_pulse_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#unfoc.burst_noise.filter.make_pulse_kernel" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">make_pulse_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsamples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Generate a sinc pulse kernel for matched filtering.</p>
 <p>Construct a sinc pulse kernel of length nsamples, with a
 pulse width of ‘width’ samples, and a peak amplitude of 1.0.
@@ -298,8 +289,8 @@ Recommend making the kernel an odd number of samples for symmetry</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.match_burst_trace">
-<span class="sig-name descname"><span class="pre">match_burst_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_bb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_kernel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#unfoc.burst_noise.filter.match_burst_trace" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">match_burst_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_bb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_kernel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">median_size</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Apply a matched filter kernel to a trace and return the convolution</p>
 <p>Assumes the trace has already been downconverted to baseband
 and that the kernel is also already adownconverted complex exponential</p>
@@ -321,8 +312,8 @@ and that the kernel is also already adownconverted complex exponential</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="unfoc.burst_noise.filter.silence_burst">
-<span class="sig-name descname"><span class="pre">silence_burst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#unfoc.burst_noise.filter.silence_burst" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">silence_burst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Silence the burst by taking the ends and filling them toward
 the middle</p>
 <dl class="field-list simple">
@@ -339,6 +330,9 @@ the middle</p>
 <dd class="field-odd"><p>np.array</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Todo:Make a separate function that does a linear interpolation
+rather than taking beginning and end</p>
 </dd></dl>
 
 </section>
@@ -353,7 +347,7 @@ the middle</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

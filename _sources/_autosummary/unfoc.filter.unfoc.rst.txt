@@ -1,6 +1,0 @@
-﻿unfoc.unfoc
-===========
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.unfoc

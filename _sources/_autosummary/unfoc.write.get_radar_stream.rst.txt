@@ -1,6 +1,0 @@
-﻿unfoc.get_radar_stream
-======================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.write.get_radar_stream

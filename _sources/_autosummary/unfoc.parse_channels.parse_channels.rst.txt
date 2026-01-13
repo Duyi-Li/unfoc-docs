@@ -1,6 +1,0 @@
-﻿unfoc.parse_channels
-====================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.parse_channels.parse_channels

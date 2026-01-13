@@ -1,6 +1,0 @@
-﻿unfoc.get_utig_channels
-=======================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.get_utig_channels

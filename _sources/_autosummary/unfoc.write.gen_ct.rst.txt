@@ -1,6 +1,0 @@
-﻿unfoc.gen_ct
-============
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.write.gen_ct

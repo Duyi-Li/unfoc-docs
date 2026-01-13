@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unfoc Module Design &mdash; unfoc 2.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="unfoc Module" href="modules.html" />
+    <link rel="prev" title="Usage Guide" href="usage_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            unfoc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">unfoc Module Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#primary-entry-point">primary entry point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-pipeline">processing pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-readers">Input data readers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">unfoc Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">unfoc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">unfoc Module Design</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/package_design.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="unfoc-module-design">
+<h1>unfoc Module Design<a class="headerlink" href="#unfoc-module-design" title="Link to this heading"></a></h1>
+<p>2022-03-08 Gregory Ng</p>
+<p>This document provides some discussion regarding how the unfoc module
+is organized.</p>
+<p>The previous iteration of the module simultaneously read all of
+the input radar data, demultiplexed the radar channels, and wrote
+filtered data to disk.</p>
+<p>The old code was undoubtedly very difficult to understand and
+kept track of a lot of state.</p>
+<p>The current iteration processes one output data product at a time.
+This has the potential to be somewhat slower, but because we are
+doing less, the code is significantly simpler.</p>
+<p>While it might seem slower and less efficient to read and process
+one channel at a time, the theoretical time advantage/disadvantage is
+unclear.  On one hand, you are rereading the same data more than once;
+but on the other hand, disk caching minimize additional work done,
+and parallel processing is easily achieved.</p>
+<p>Because this processing appears somewhat I/O limited, there are no
+plans to allow additional block-level parallelism (which seems to
+make sense for 1D and especially 2D focusing).</p>
+<section id="primary-entry-point">
+<h2>primary entry point<a class="headerlink" href="#primary-entry-point" title="Link to this heading"></a></h2>
+<p>The primary entry point for the module is the <cite>unfoc</cite> function.</p>
+<p>This function takes the usual processing parameters for inputs and
+outputs, and then calls <cite>unfoc_chan</cite>, which runs the processing
+code for each requested output data channel, assigning each channel
+to among a pool of one or more workers.</p>
+</section>
+<section id="processing-pipeline">
+<h2>processing pipeline<a class="headerlink" href="#processing-pipeline" title="Link to this heading"></a></h2>
+<p><cite>unfoc_chan</cite> sets up a processing pipeline that creates a source
+of raw radar traces.  It then chains this source into a coherent
+stacker, a dechirp function, and a which is then passed through
+functions for coherent stacking, dechirp, and incoherent stacking.</p>
+<p>After the pipeline is set up, an output handler takes care of getting
+each incoherent trace and formatting it for output, and writing to disk.</p>
+<p>This pipeline is effectively driven by the output, and input traces
+are pulled as needed to create the output incoherent traces, and
+when there are no more available, it quits.</p>
+</section>
+<section id="input-data-readers">
+<h2>Input data readers<a class="headerlink" href="#input-data-readers" title="Link to this heading"></a></h2>
+<p>The input data reader classes provide an easy-to-use interface to
+bxds files in python, and hide the task of parsing the bxds files.</p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<p>In the <cite>regress</cite> directory, run <cite>run_coverage.sh</cite> for regression
+testing.  This script runs individual unit test python scripts.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Peters, M. E., Blankenship, D. D., &amp; Morse, D. L. (2005).
+<em>Analysis techniques for coherent airborne radar sounding: Application to West Antarctic ice streams</em>.
+<strong>Journal of Geophysical Research: Solid Earth</strong>, 110(B6), B06303.
+<a class="reference external" href="https://doi.org/10.1029/2004JB003222">https://doi.org/10.1029/2004JB003222</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage_guide.html" class="btn btn-neutral float-left" title="Usage Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="unfoc Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc.parse_channels &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc.parse_channels &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/documentation_options.js?v=20623aea"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.write.html">unfoc.write</a></li>
@@ -92,12 +93,16 @@
 <dt class="sig sig-object py" id="unfoc.parse_channels">
 <span class="sig-name descname"><span class="pre">parse_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chanstr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.parse_channels" title="Link to this definition"></a></dt>
 <dd><p>Parse a legacy-style channel specification into a list of PIK1ChannelSpec objects.</p>
-<p>Supports two formats:
-- An integer channel number (deprecated).
-- A MATLAB-style semicolon-separated list of 5-column values,</p>
-<blockquote>
-<div><p>e.g., “[1,1,1,0,0; 2,2,1,0,0]”.</p>
-</div></blockquote>
+<p class="rubric">Notes</p>
+<p>Supported formats are:</p>
+<ol class="arabic simple">
+<li><p>An integer channel number (deprecated).</p></li>
+<li><dl class="simple">
+<dt>A MATLAB-style semicolon-separated list of 5-column values, e.g.::</dt><dd><p>“[1,1,1,0,0; 2,2,1,0,0]”.</p>
+</dd>
+</dl>
+</li>
+</ol>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>chanstr</strong> (<em>int</em><em> or </em><em>str</em>) – Integer channel number or formatted string defining multiple channels.</p>
@@ -106,7 +111,7 @@
 <dd class="field-even"><p>Parsed list of channel specifications.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of <a class="reference internal" href="unfoc.filter.PIK1ChannelSpec.html#unfoc.filter.PIK1ChannelSpec" title="unfoc.filter.PIK1ChannelSpec">PIK1ChannelSpec</a></p>
+<dd class="field-odd"><p>list of PIK1ChannelSpec</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the string format is invalid (wrong number of values).</p>
@@ -127,7 +132,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

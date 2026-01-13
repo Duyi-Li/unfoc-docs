@@ -1,6 +1,0 @@
-﻿unfoc.get_hfilter
-=================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.dechirp.get_hfilter

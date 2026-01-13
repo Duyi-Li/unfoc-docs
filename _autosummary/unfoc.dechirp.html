@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc.dechirp &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc.dechirp &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/documentation_options.js?v=20623aea"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.write.html">unfoc.write</a></li>
@@ -99,16 +100,16 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.dechirp.cinterp.html#unfoc.dechirp.cinterp" title="unfoc.dechirp.cinterp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cinterp</span></code></a>(sweep_fft, index)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.dechirp.cinterp" title="unfoc.dechirp.cinterp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cinterp</span></code></a>(sweep_fft, index)</p></td>
 <td><p>Suppress local oscillator (LO) spike in an FFT spectrum by interpolation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.dechirp.denoise_and_dechirp.html#unfoc.dechirp.denoise_and_dechirp" title="unfoc.dechirp.denoise_and_dechirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_and_dechirp</span></code></a>(trace, ref_chirp, ...[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.dechirp.denoise_and_dechirp" title="unfoc.dechirp.denoise_and_dechirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_and_dechirp</span></code></a>(trace, ref_chirp, ...[, ...])</p></td>
 <td><p>Denoise and dechirp a radar trace in the frequency domain.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.dechirp.get_hfilter.html#unfoc.dechirp.get_hfilter" title="unfoc.dechirp.get_hfilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hfilter</span></code></a>(trunc_sweep_length)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.dechirp.get_hfilter" title="unfoc.dechirp.get_hfilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hfilter</span></code></a>(trunc_sweep_length)</p></td>
 <td><p>Generate a half-band sine window filter centered in a fixed band.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.dechirp.get_ref_chirp.html#unfoc.dechirp.get_ref_chirp" title="unfoc.dechirp.get_ref_chirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ref_chirp</span></code></a>(bandpass, trunc_sweep_length)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.dechirp.get_ref_chirp" title="unfoc.dechirp.get_ref_chirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ref_chirp</span></code></a>(bandpass, trunc_sweep_length)</p></td>
 <td><p>Generate a reference chirp for frequency-domain dechirping.</p></td>
 </tr>
 </tbody>
@@ -209,7 +210,7 @@ scaled to the FFT length.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

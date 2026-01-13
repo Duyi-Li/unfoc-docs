@@ -6,21 +6,21 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc Module &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc Module &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=841abef3"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="unfoc.read" href="_autosummary/unfoc.read.html" />
-    <link rel="prev" title="Usage Guide" href="usage_guide.html" /> 
+    <link rel="prev" title="unfoc Module Design" href="package_design.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">unfoc Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/unfoc.read.html">unfoc.read</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/unfoc.write.html">unfoc.write</a></li>
@@ -86,25 +87,25 @@
 <h1>unfoc Module<a class="headerlink" href="#unfoc-module" title="Link to this heading"></a></h1>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.read.html#module-unfoc.read" title="unfoc.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.read</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.read.html#module-unfoc.read" title="unfoc.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a></p></td>
 <td><p>Provides functions and objects for reading UTIG radar data formats into numpy.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/unfoc.write.html#module-unfoc.write" title="unfoc.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.write</span></code></a></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></p></td>
 <td><p>Handler for writing unfoc output files: unfocused radar data products in the UTIG PIK1 format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.dechirp.html#module-unfoc.dechirp" title="unfoc.dechirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.dechirp</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.dechirp.html#module-unfoc.dechirp" title="unfoc.dechirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dechirp</span></code></a></p></td>
 <td><p>Math related to dechirping, local oscillator noise suppression and frequency domain filtering.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/unfoc.filter.html#module-unfoc.filter" title="unfoc.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.filter</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/unfoc.filter.html#module-unfoc.filter" title="unfoc.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a></p></td>
 <td><p>Filtering operations for unfocused processing</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.trace.html#module-unfoc.trace" title="unfoc.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.trace</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.trace.html#module-unfoc.trace" title="unfoc.trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trace</span></code></a></p></td>
 <td><p>Container class for pairing radar trace data with control metadata.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/unfoc.parse_channels.html#unfoc.parse_channels" title="unfoc.parse_channels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.parse_channels</span></code></a>(chanstr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/unfoc.parse_channels.html#unfoc.parse_channels" title="unfoc.parse_channels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_channels</span></code></a>(chanstr)</p></td>
 <td><p>Parse a legacy-style channel specification into a list of PIK1ChannelSpec objects.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/unfoc.burst_noise.filter.html#module-unfoc.burst_noise.filter" title="unfoc.burst_noise.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfoc.burst_noise.filter</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">burst_noise.filter</span></code></p></td>
 <td><p>Main body for burst noise filtering</p></td>
 </tr>
 </tbody>
@@ -115,14 +116,14 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage_guide.html" class="btn btn-neutral float-left" title="Usage Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="package_design.html" class="btn btn-neutral float-left" title="unfoc Module Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="_autosummary/unfoc.read.html" class="btn btn-neutral float-right" title="unfoc.read" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

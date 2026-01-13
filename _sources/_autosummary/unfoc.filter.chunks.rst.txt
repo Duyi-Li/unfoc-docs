@@ -1,6 +1,0 @@
-﻿unfoc.chunks
-============
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.chunks

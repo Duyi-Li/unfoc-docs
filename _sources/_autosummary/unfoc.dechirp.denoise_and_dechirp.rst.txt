@@ -1,6 +1,0 @@
-﻿unfoc.denoise_and_dechirp
-=========================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.dechirp.denoise_and_dechirp

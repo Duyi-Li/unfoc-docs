@@ -1,6 +1,0 @@
-﻿unfoc.stack_coherent_chunk
-==========================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.stack_coherent_chunk

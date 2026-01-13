@@ -1,6 +1,0 @@
-﻿unfoc.denoise_burst
-===================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.denoise_burst

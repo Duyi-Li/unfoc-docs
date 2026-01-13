@@ -1,6 +1,0 @@
-﻿unfoc.namedtuple
-================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.write.namedtuple

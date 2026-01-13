@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc.read &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc.read &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/documentation_options.js?v=20623aea"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">unfoc.read</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#unfoc.read.CT_full_t"><code class="docutils literal notranslate"><span class="pre">CT_full_t</span></code></a></li>
@@ -185,31 +186,31 @@ the format of the data from the binary contents of the file.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.gen_ct.html#unfoc.read.gen_ct" title="unfoc.read.gen_ct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_ct</span></code></a>(bxdsfile[, full])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.gen_ct" title="unfoc.read.gen_ct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_ct</span></code></a>(bxdsfile[, full])</p></td>
 <td><p>Generate ct data from the ct file associated with bxdsfile</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.get_radar_stream.html#unfoc.read.get_radar_stream" title="unfoc.read.get_radar_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_radar_stream</span></code></a>(filename)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.get_radar_stream" title="unfoc.read.get_radar_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_radar_stream</span></code></a>(filename)</p></td>
 <td><p>Determine the radar stream type from the file header</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.get_radar_type.html#unfoc.read.get_radar_type" title="unfoc.read.get_radar_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_radar_type</span></code></a>(bxdsfile[, nrecords, stream])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.get_radar_type" title="unfoc.read.get_radar_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_radar_type</span></code></a>(bxdsfile[, nrecords, stream])</p></td>
 <td><p>Inspect a raw datafile and detect what type of radar it came from</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.index_RADnhx_bxds.html#unfoc.read.index_RADnhx_bxds" title="unfoc.read.index_RADnhx_bxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_RADnhx_bxds</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.index_RADnhx_bxds" title="unfoc.read.index_RADnhx_bxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_RADnhx_bxds</span></code></a>(input_filename[, stream, ...])</p></td>
 <td><p>Generator that yields positions of packets within a RADnh3 and RADnh5 bxds file</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.index_RADnhx_bxds_mmap_.html#unfoc.read.index_RADnhx_bxds_mmap_" title="unfoc.read.index_RADnhx_bxds_mmap_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_RADnhx_bxds_mmap_</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.index_RADnhx_bxds_mmap_" title="unfoc.read.index_RADnhx_bxds_mmap_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_RADnhx_bxds_mmap_</span></code></a>(input_filename[, ...])</p></td>
 <td><p>Memory mapped version of index_RADnhx_bxds</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.radar_index_summary.html#unfoc.read.radar_index_summary" title="unfoc.read.radar_index_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radar_index_summary</span></code></a>(bxdsfile[, stream])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.radar_index_summary" title="unfoc.read.radar_index_summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radar_index_summary</span></code></a>(bxdsfile[, stream])</p></td>
 <td><p>Inspect bxds file to determine which records are complete and what type of stream it is</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.read_1m_gen.html#unfoc.read.read_1m_gen" title="unfoc.read.read_1m_gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_1m_gen</span></code></a>(bxdsfile, channel[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.read_1m_gen" title="unfoc.read.read_1m_gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_1m_gen</span></code></a>(bxdsfile, channel[, ...])</p></td>
 <td><p>Set up the generator for reading from a S2_FIL bxdsN.i file</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.read_RADnhx_gen.html#unfoc.read.read_RADnhx_gen" title="unfoc.read.read_RADnhx_gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_RADnhx_gen</span></code></a>(bxds_filename, channel[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.read_RADnhx_gen" title="unfoc.read.read_RADnhx_gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_RADnhx_gen</span></code></a>(bxds_filename, channel[, ...])</p></td>
 <td><p>Generator that yields a sequence of traces from only one channel in a bxds file</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.sync_radar_start.html#unfoc.read.sync_radar_start" title="unfoc.read.sync_radar_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync_radar_start</span></code></a>(bxdsfile[, nrecords, stream])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.sync_radar_start" title="unfoc.read.sync_radar_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync_radar_start</span></code></a>(bxdsfile[, nrecords, stream])</p></td>
 <td><p>Inspect a bxds file and figure out how many channels it has, and what the first complete rseq number is.</p></td>
 </tr>
 </tbody>
@@ -217,28 +218,28 @@ the format of the data from the binary contents of the file.</p>
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.CT_full_t.html#unfoc.read.CT_full_t" title="unfoc.read.CT_full_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CT_full_t</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.CT_full_t" title="unfoc.read.CT_full_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CT_full_t</span></code></a></p></td>
 <td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">CT_full</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.CT_t.html#unfoc.read.CT_t" title="unfoc.read.CT_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CT_t</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.CT_t" title="unfoc.read.CT_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CT_t</span></code></a></p></td>
 <td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">CT</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.RADjh1Bxds.html#unfoc.read.RADjh1Bxds" title="unfoc.read.RADjh1Bxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RADjh1Bxds</span></code></a>([filename, channel, stream, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.RADjh1Bxds" title="unfoc.read.RADjh1Bxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RADjh1Bxds</span></code></a>([filename, channel, stream, ...])</p></td>
 <td><p>Reader for RADjh1 bxds.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.RadBxds.html#unfoc.read.RadBxds" title="unfoc.read.RadBxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxds</span></code></a>([filename, channel, stream, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.RadBxds" title="unfoc.read.RadBxds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxds</span></code></a>([filename, channel, stream, ...])</p></td>
 <td><p>Reader for random access to traces in a RADnh3 or RADnh5 bxds as numpy arrays</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.RadBxdsEx.html#unfoc.read.RadBxdsEx" title="unfoc.read.RadBxdsEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxdsEx</span></code></a>(filename[, channels, stream, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.RadBxdsEx" title="unfoc.read.RadBxdsEx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxdsEx</span></code></a>([filename, channels, stream, ...])</p></td>
 <td><p>Combine one or more RADnh3/RADnh5 channels as specified in the channel spec.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.RadBxdsIterator.html#unfoc.read.RadBxdsIterator" title="unfoc.read.RadBxdsIterator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxdsIterator</span></code></a>(bxds)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.RadBxdsIterator" title="unfoc.read.RadBxdsIterator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RadBxdsIterator</span></code></a>(bxds)</p></td>
 <td><p>Iterator for RadBxds, Radjh1Bxds, RadBxdsEx</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.read.radnh3_header.html#unfoc.read.radnh3_header" title="unfoc.read.radnh3_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radnh3_header</span></code></a>(nsamp, nchan, vr0, vr1, choff, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#unfoc.read.radnh3_header" title="unfoc.read.radnh3_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radnh3_header</span></code></a>(nsamp, nchan, vr0, vr1, choff, ...)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="unfoc.read.radnh5_header.html#unfoc.read.radnh5_header" title="unfoc.read.radnh5_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radnh5_header</span></code></a>(nsamp, nchan, vr0, vr1, choff, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#unfoc.read.radnh5_header" title="unfoc.read.radnh5_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radnh5_header</span></code></a>(nsamp, nchan, vr0, vr1, choff, ...)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -257,7 +258,7 @@ the format of the data from the binary contents of the file.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="unfoc.read.RADjh1Bxds">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RADjh1Bxds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RADjh1Bxds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Reader for RADjh1 bxds.</p>
 <p>This is really just a thin wrapper around the numpy.memmap interface
@@ -280,12 +281,13 @@ for parallelism with RadBxds.</p>
 <li><p>Use <cite>__getitem__</cite>, slicing, or <cite>ct()</cite> to access data and CT metadata.</p></li>
 <li><p>Index saving/loading are no-ops.</p></li>
 </ul>
+<p>Todo: Implemen iteration.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RADjh1Bxds.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize the reader to access one channel’s records
 indexfile is not used but included for interface compatibility
-with other <a href="#id1"><span class="problematic" id="id2">*</span></a>Bxds classes</p>
+with other <code class="docutils literal notranslate"><span class="pre">*Bxds</span></code> classes</p>
 </dd></dl>
 
 <dl class="py method">
@@ -306,13 +308,13 @@ two_cts = self.ct(3:5)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RADjh1Bxds.load_index">
-<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.load_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.load_index" title="Link to this definition"></a></dt>
 <dd><p>placeholder so tests pass.  There is nothing to load</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RADjh1Bxds.open">
-<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.open" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.open" title="Link to this definition"></a></dt>
 <dd><p>Open the bxds and load record index for bxds</p>
 <p>filename: bxds filename for low gain channel
 channel: one-based channel number
@@ -321,7 +323,7 @@ stream: (optional) hint for stream type</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RADjh1Bxds.save_index">
-<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.save_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RADjh1Bxds.save_index" title="Link to this definition"></a></dt>
 <dd><p>placeholder so tests pass.  There is
 no index to save or load. touch the file?</p>
 </dd></dl>
@@ -330,7 +332,7 @@ no index to save or load. touch the file?</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RadBxds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RadBxds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Reader for random access to traces in a RADnh3 or RADnh5 bxds as numpy arrays</p>
 <p>Future: add support for also auto-detecting RADjh1 bxds
@@ -386,14 +388,14 @@ alternative name ideas:</p>
 <dd><p>Optional burst noise filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="unfoc.read.BurstDenoiser.html#unfoc.read.BurstDenoiser" title="unfoc.read.BurstDenoiser">BurstDenoiser</a> or None</p>
+<dd class="field-odd"><p>BurstDenoiser or None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize the reader to access one channel’s records
 if burstnoise is a dictionary, pass this to the burst noise calculation</p>
 </dd></dl>
@@ -416,19 +418,19 @@ two_cts = self.ct(3:5)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds.load_index">
-<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.load_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.load_index" title="Link to this definition"></a></dt>
 <dd><p>read index data saved with save_index from indexfile into self.index</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds.make_index">
-<span class="sig-name descname"><span class="pre">make_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.make_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">make_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validonly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.make_index" title="Link to this definition"></a></dt>
 <dd><p>Make index data from data in the file descriptor</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds.open">
-<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.open" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burstnoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.open" title="Link to this definition"></a></dt>
 <dd><p>Open the bxds and load record index for bxds</p>
 <p>This ignores sequence numbers and assumes that there are no
 out-of-order radar records within a channel.
@@ -449,15 +451,15 @@ In theory we could sort the records by sequence number.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxds.save_index">
-<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.save_index" title="Link to this definition"></a></dt>
-<dd><p>Save the index data in <a href="#id3"><span class="problematic" id="id4">self.index_</span></a> to a file to read later</p>
+<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxds.save_index" title="Link to this definition"></a></dt>
+<dd><p>Save the index data in <code class="docutils literal notranslate"><span class="pre">self.index_</span></code> to a file to read later</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="unfoc.read.RadBxdsEx">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RadBxdsEx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bxds_class=&lt;class</span> <span class="pre">'unfoc.read.RadBxds'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RadBxdsEx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bxds_class=&lt;class</span> <span class="pre">'unfoc.read.RadBxds'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Combine one or more RADnh3/RADnh5 channels as specified in the channel spec.</p>
 <p>Currently only supports combining two channels with summation</p>
@@ -465,7 +467,7 @@ In theory we could sort the records by sequence number.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the BXDS file.</p></li>
-<li><p><strong>channels</strong> (<a class="reference internal" href="unfoc.filter.PIK1ChannelSpec.html#unfoc.filter.PIK1ChannelSpec" title="unfoc.filter.PIK1ChannelSpec"><em>PIK1ChannelSpec</em></a>) – Specification of channels to load, including scaling factors and burst noise options.</p></li>
+<li><p><strong>channels</strong> (<em>PIK1ChannelSpec</em>) – Specification of channels to load, including scaling factors and burst noise options.</p></li>
 <li><p><strong>stream</strong> (<em>str</em><em>, </em><em>optional</em>) – bxds stream type (‘RADnh3’ or ‘RADnh5’).</p></li>
 <li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy dtype</em><em>, </em><em>optional</em>) – Output data type. Defaults to ‘&gt;i2’ for single-channel or ‘&gt;i4’ for combined channels.</p></li>
 <li><p><strong>validonly</strong> (<em>bool</em><em>, </em><em>default=True</em>) – Whether to include only valid records (those present across all digitizers).</p></li>
@@ -482,7 +484,7 @@ In theory we could sort the records by sequence number.</p>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxdsEx.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bxds_class=&lt;class</span> <span class="pre">'unfoc.read.RadBxds'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bxds_class=&lt;class</span> <span class="pre">'unfoc.read.RadBxds'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -498,12 +500,12 @@ In theory we could sort the records by sequence number.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxdsEx.load_index">
-<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.load_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.load_index" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxdsEx.open">
-<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.open" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.open" title="Link to this definition"></a></dt>
 <dd><p>filename: bxds file to load
 channels: list of channels to load (a PIK1ChannelSpec object)
 stream: hint at stream type
@@ -512,7 +514,7 @@ indexfile: if provided, load the index from this file</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="unfoc.read.RadBxdsEx.save_index">
-<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.save_index" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.RadBxdsEx.save_index" title="Link to this definition"></a></dt>
 <dd><p>Save index for each file using underlying index file.
 Since open() can only be called with one input filename,
 indexfile is also only one filename</p>
@@ -551,7 +553,7 @@ If full is True, yields CT_full_t with all fields.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.get_radar_stream">
-<span class="sig-name descname"><span class="pre">get_radar_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.get_radar_stream" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_radar_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.get_radar_stream" title="Link to this definition"></a></dt>
 <dd><p>Determine the radar stream type from the file header</p>
 </dd></dl>
 
@@ -565,7 +567,7 @@ radar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bxdsfile</strong> (<em>str</em><em> or </em><a class="reference internal" href="unfoc.read.Path.html#unfoc.read.Path" title="unfoc.read.Path"><em>Path</em></a>) – Path to the BXDS-formatted radar file.</p></li>
+<li><p><strong>bxdsfile</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the BXDS-formatted radar file.</p></li>
 <li><p><strong>nrecords</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of records to inspect (default is 2000).</p></li>
 <li><p><strong>stream</strong> (<em>file-like</em><em>, </em><em>optional</em>) – Optional binary file stream. If provided, bypasses re-opening the file.</p></li>
 </ul>
@@ -582,7 +584,7 @@ radar.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.index_RADnhx_bxds">
-<span class="sig-name descname"><span class="pre">index_RADnhx_bxds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.index_RADnhx_bxds" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">index_RADnhx_bxds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.index_RADnhx_bxds" title="Link to this definition"></a></dt>
 <dd><p>Generator that yields positions of packets within a RADnh3 and RADnh5 bxds file</p>
 <p>Routines can then use this to seek to the correct location in a file.</p>
 <p>if filepos is not None, seek to this file position before indexing</p>
@@ -606,11 +608,14 @@ radar.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Todo: Rework this function to always return the full header and make
+all callers grab the member methods</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.index_RADnhx_bxds_mmap_">
-<span class="sig-name descname"><span class="pre">index_RADnhx_bxds_mmap_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.index_RADnhx_bxds_mmap_" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">index_RADnhx_bxds_mmap_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.index_RADnhx_bxds_mmap_" title="Link to this definition"></a></dt>
 <dd><p>Memory mapped version of index_RADnhx_bxds</p>
 <p>Read the positions of packets within a RADnh3 and RADnh5 bxds file
 and return these as a generator</p>
@@ -621,7 +626,7 @@ to index_RADnhx_bxds</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.radar_index_summary">
-<span class="sig-name descname"><span class="pre">radar_index_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.radar_index_summary" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">radar_index_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.radar_index_summary" title="Link to this definition"></a></dt>
 <dd><p>Inspect bxds file to determine which records are complete and what type of stream it is</p>
 <p>Scans the file to determine:
 - File format (RADnh3 or RADnh5)
@@ -840,7 +845,7 @@ Channel is currently required, but hypothetically you could figure it out from t
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.read_RADnhx_gen">
-<span class="sig-name descname"><span class="pre">read_RADnhx_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxds_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.read_RADnhx_gen" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read_RADnhx_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxds_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.read_RADnhx_gen" title="Link to this definition"></a></dt>
 <dd><p>Generator that yields a sequence of traces from only one channel in a bxds file</p>
 <p>channel offset is a one-based index.</p>
 <p>Takes a bxds filename as an argument.
@@ -867,7 +872,7 @@ Reads from this file and a ct file alongside it.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.read.sync_radar_start">
-<span class="sig-name descname"><span class="pre">sync_radar_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrecords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.sync_radar_start" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sync_radar_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrecords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.read.sync_radar_start" title="Link to this definition"></a></dt>
 <dd><p>Inspect a bxds file and figure out how many channels it has,
 and what the first complete rseq number is.</p>
 <p>This allows us to make sure that all of the radar samples are
@@ -917,7 +922,7 @@ synchronized between channels</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

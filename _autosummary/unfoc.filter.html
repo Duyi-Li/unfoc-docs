@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unfoc.filter &mdash; unfoc 2.1.1 documentation</title>
+  <title>unfoc.filter &mdash; unfoc 2.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=841abef3"></script>
+      <script src="../_static/documentation_options.js?v=20623aea"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_design.html">unfoc Module Design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">unfoc Module</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unfoc.read.html">unfoc.read</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unfoc.write.html">unfoc.write</a></li>
@@ -109,19 +110,6 @@ dechirping, and phase/magnitude trace output.</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Functions</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="unfoc.filter.denoise_burst.html#unfoc.filter.denoise_burst" title="unfoc.filter.denoise_burst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denoise_burst</span></code></a>(tracegen, median_size, ...)</p></td>
-<td><p>Return a generator that reduces burst noise in a series of traces</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Classes</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-</tbody>
-</table>
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.chunks">
 <span class="sig-name descname"><span class="pre">chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incomplete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.chunks" title="Link to this definition"></a></dt>
@@ -142,21 +130,21 @@ structure as stack_coherent_chunk</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.enable_burstnoise">
-<span class="sig-name descname"><span class="pre">enable_burstnoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1cs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="unfoc.parse_channels.PIK1ChannelSpec.html#unfoc.parse_channels.PIK1ChannelSpec" title="unfoc.parse_channels.PIK1ChannelSpec"><span class="pre">PIK1ChannelSpec</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.enable_burstnoise" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">enable_burstnoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1cs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.enable_burstnoise" title="Link to this definition"></a></dt>
 <dd><p>Look at the channel numbers and enable burst noise suppression
 as required for input channels 2 and 4 (high gain left and high gain right)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.setup_bxds_reader">
-<span class="sig-name descname"><span class="pre">setup_bxds_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.setup_bxds_reader" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setup_bxds_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.setup_bxds_reader" title="Link to this definition"></a></dt>
 <dd><p>Set up the generators for reading from a bxds file and producing
 pairwise-summed traces or individual unsummed traces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bxdsfile</strong> (<em>str</em>) – Path to bxds file.</p></li>
-<li><p><strong>channel_specs</strong> (<a class="reference internal" href="unfoc.filter.PIK1ChannelSpec.html#unfoc.filter.PIK1ChannelSpec" title="unfoc.filter.PIK1ChannelSpec"><em>PIK1ChannelSpec</em></a>) – Channel config including burstnoise and scaling.</p></li>
+<li><p><strong>channel_specs</strong> (<em>PIK1ChannelSpec</em>) – Channel config including burstnoise and scaling.</p></li>
 <li><p><strong>buffering</strong> (<em>int</em>) – Buffer size for reading traces.</p></li>
 </ul>
 </dd>
@@ -167,17 +155,20 @@ pairwise-summed traces or individual unsummed traces</p>
 <dd class="field-odd"><p>generator</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Todo: Update PIK1ChannelSpec to have less redundant parameters since we
+make these assertions here.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.setup_reader">
-<span class="sig-name descname"><span class="pre">setup_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.setup_reader" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setup_reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bxdsfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.setup_reader" title="Link to this definition"></a></dt>
 <dd><p>Auto-detect input type and return a trace generator and tag.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>bxdsfile</strong> (<em>str</em>) – Path to input bxds file.</p></li>
-<li><p><strong>channel_specs</strong> (<a class="reference internal" href="unfoc.filter.PIK1ChannelSpec.html#unfoc.filter.PIK1ChannelSpec" title="unfoc.filter.PIK1ChannelSpec"><em>PIK1ChannelSpec</em></a>) – Channel specification.</p></li>
+<li><p><strong>channel_specs</strong> (<em>PIK1ChannelSpec</em>) – Channel specification.</p></li>
 <li><p><strong>input_type</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Input format (e.g., ‘orig’, ‘S2_FIL’). Default is None (auto).</p></li>
 <li><p><strong>buffering</strong> (<em>int</em><em>, </em><em>optional</em>) – Buffering size for file read. Default is -1.</p></li>
 </ul>
@@ -202,7 +193,7 @@ and metadata from  the input traces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>coherent_chunk_gen</strong> (<em>iterable</em><em> of </em><a class="reference internal" href="unfoc.read.Trace.html#unfoc.read.Trace" title="unfoc.read.Trace"><em>Trace</em></a>) – Input traces to stack.</p></li>
+<li><p><strong>coherent_chunk_gen</strong> (<em>iterable</em><em> of </em><a class="reference internal" href="unfoc.trace.html#unfoc.trace.Trace" title="unfoc.trace.Trace"><em>Trace</em></a>) – Input traces to stack.</p></li>
 <li><p><strong>ct_type</strong> (<em>{'mid'</em><em>, </em><em>'all'}</em><em>, </em><em>optional</em>) – How to assign the output CT. Default is ‘mid’.</p></li>
 <li><p><strong>dtype</strong> (<em>dtype</em><em>, </em><em>optional</em>) – Output array data type. Default is float64.</p></li>
 </ul>
@@ -236,7 +227,7 @@ and if phase is requested, the phase in the center of the stack</p>
 <dd class="field-even"><p>Output trace with magnitude, ct, and optional phase.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="unfoc.filter.IncoherentTrace.html#unfoc.filter.IncoherentTrace" title="unfoc.filter.IncoherentTrace">IncoherentTrace</a></p>
+<dd class="field-odd"><p>IncoherentTrace</p>
 </dd>
 </dl>
 </dd></dl>
@@ -249,7 +240,7 @@ and if phase is requested, the phase in the center of the stack</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.unfoc">
-<span class="sig-name descname"><span class="pre">unfoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">unfoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc" title="Link to this definition"></a></dt>
 <dd><p>Generate all requested output channels of unfoc data and write it to the
 specified output directory with the standard file naming.</p>
 <p>The channels parameter is a string containing a comma-separated list
@@ -265,7 +256,7 @@ Valid values include ‘burst’, for burst noise denoising, or None, for no den
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outdir</strong> (<em>str</em>) – Output directory for writing processed radar traces.</p></li>
 <li><p><strong>infile</strong> (<em>str</em>) – Path to the input <cite>.bxds</cite> radar data file.</p></li>
-<li><p><strong>channels</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><a class="reference internal" href="unfoc.filter.PIK1ChannelSpec.html#unfoc.filter.PIK1ChannelSpec" title="unfoc.filter.PIK1ChannelSpec"><em>PIK1ChannelSpec</em></a>) – Specification of output channels. If a string, will be parsed via <cite>get_utig_channels</cite>.</p></li>
+<li><p><strong>channels</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>PIK1ChannelSpec</em>) – Specification of output channels. If a string, will be parsed via <cite>get_utig_channels</cite>.</p></li>
 <li><p><strong>output_samples</strong> (<em>int</em>) – Number of output samples per trace.</p></li>
 <li><p><strong>stackdepth</strong> (<em>int</em>) – Number of traces to stack coherently.</p></li>
 <li><p><strong>incodepth</strong> (<em>int</em>) – Number of traces to stack incoherently.</p></li>
@@ -284,7 +275,7 @@ Valid values include ‘burst’, for burst noise denoising, or None, for no den
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.unfoc_1m_chan">
-<span class="sig-name descname"><span class="pre">unfoc_1m_chan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chanout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc_1m_chan" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">unfoc_1m_chan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chanout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc_1m_chan" title="Link to this definition"></a></dt>
 <dd><p>Generate one output channel of unfoc 1-meter-spaced data</p>
 <p>See unfoc_chan for parameters</p>
 <p>chanout: Output channel name – used for setting output filename within outdir</p>
@@ -292,22 +283,28 @@ Valid values include ‘burst’, for burst noise denoising, or None, for no den
 
 <dl class="py function">
 <dt class="sig sig-object py" id="unfoc.filter.unfoc_chan">
-<span class="sig-name descname"><span class="pre">unfoc_chan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1cs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc_chan" title="Link to this definition"></a></dt>
-<dd><p>Generate one output channel of unfoc data</p>
-<p>outdir: output directory where data will be placed
-infile: input bxds file
-p1cs: channel specification for this output file (PIK1ChannelSpec object)
-output_samples: number of output samples to place into the output file
-stackdepth: coherent stacking depth
-incodepth: incoherent stacking depth
-blanking: samples to blank
-scale: output magnitude scaling factor
-output_phases: if true, also output phase data
-nmax: max number of output samples to prcess, then quit (usually for testing).
-burst_noise:</p>
-<blockquote>
-<div><p>parameters for burst noise correction</p>
-</div></blockquote>
+<span class="sig-name descname"><span class="pre">unfoc_chan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1cs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackdepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incodepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blanking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_phases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burst_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unfoc.filter.unfoc_chan" title="Link to this definition"></a></dt>
+<dd><p>Generate one output channel of unfoc data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outdir</strong> (<em>str</em>) – Output directory where data will be placed.</p></li>
+<li><p><strong>infile</strong> (<em>str</em>) – Input bxds file.</p></li>
+<li><p><strong>p1cs</strong> (<em>PIK1ChannelSpec</em>) – Channel specification for this output file.</p></li>
+<li><p><strong>output_samples</strong> (<em>int</em>) – Number of output samples to place into the output file.</p></li>
+<li><p><strong>stackdepth</strong> (<em>int</em>) – Coherent stacking depth.</p></li>
+<li><p><strong>incodepth</strong> (<em>int</em>) – Incoherent stacking depth.</p></li>
+<li><p><strong>blanking</strong> (<em>int</em><em> or </em><em>slice</em><em> or </em><em>array-like</em>) – Samples to blank.</p></li>
+<li><p><strong>bandpass</strong> (<em>bool</em>) – If True, apply bandpass; used to control interpolation choice.</p></li>
+<li><p><strong>scale</strong> (<em>int</em><em>, </em><em>optional</em>) – Output magnitude scaling factor.</p></li>
+<li><p><strong>output_phases</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, also output phase data.</p></li>
+<li><p><strong>nmax</strong> (<em>int</em><em>, </em><em>optional</em>) – Max number of output records to process, then quit (usually for testing).</p></li>
+<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>optional</em>) – If &gt; 0, sleep for this many seconds before starting (used for staggering jobs).</p></li>
+<li><p><strong>burst_noise</strong> (<em>object</em><em>, </em><em>optional</em>) – Parameters for burst noise correction.</p></li>
+<li><p><strong>buffering</strong> (<em>int</em><em>, </em><em>optional</em>) – Buffering setting passed to the reader setup.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -328,7 +325,7 @@ burst_noise:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Gregory Ng.</p>
+    <p>&#169; Copyright 2025, University of Texas Institute for Geophysics.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

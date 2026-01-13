@@ -1,6 +1,0 @@
-﻿unfoc.stack_inco_chunk
-======================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.stack_inco_chunk

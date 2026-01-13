@@ -1,6 +1,0 @@
-﻿unfoc.sum_traces
-================
-
-.. py:currentmodule:: unfoc
-
-.. autofunction:: unfoc.filter.sum_traces
